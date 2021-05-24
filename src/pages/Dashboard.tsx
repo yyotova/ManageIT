@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   control: {
     padding: theme.spacing(2),
   },
-  gridWrapper: {
+  gridPadding: {
     padding: '0px'
   },
   gridItem: {
@@ -45,9 +45,9 @@ export default function Dashboard() {
   const currentProject = projects.filter(project => project.id === id);
 
   return (
-    <Grid container spacing={0} classes={{ root: classes.gridWrapper }}>
+    <Grid container spacing={0} classes={{ root: classes.gridPadding }}>
       <Grid item xs={12} classes={{ root: classes.gridItem }}>
-        <Grid container justify="center" spacing={0}>
+        <Grid container justify="center" spacing={0} classes={{ root: classes.gridPadding }}>
           {['New', 'In Progress', 'Ready For Code Review', 'Ready For Testing', 'In Testing', 'Closed'].map((value) => (
             <Grid key={value} item className={classes.tasks}>
               <Tasks label={value} tasks={currentProject[0].tasks} />
