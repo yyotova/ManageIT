@@ -7,7 +7,7 @@ import { projects } from './Projects';
 const useStyles = makeStyles((theme) => ({
   tasks: {
     height: '800px',
-    width: '250px',
+    width: '220px',
     textAlign: 'center',
     border: '1px solid #424242',
     padding: 0,
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
       borderRadius: '20px',
       maxWidth: '200px',
       paddingBottom: '7px',
-      marginLeft: '22px'
+      marginLeft: '10px'
     },
   },
   control: {
