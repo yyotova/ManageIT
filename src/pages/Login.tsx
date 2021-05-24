@@ -5,7 +5,8 @@ import authService, { users } from '../services/AuthService';
 
 const useStyles = makeStyles(() => ({
   container: {
-    marginTop: '5rem',
+    marginTop: '3rem',
+    marginBottom: '6rem',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
