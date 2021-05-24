@@ -5,7 +5,7 @@ import authService from '../services/AuthService';
 
 const useStyles = makeStyles(() => ({
   container: {
-    marginTop: '200px',
+    marginTop: '5rem',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
