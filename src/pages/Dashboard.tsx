@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
   gridItem: {
     padding: '0px',
     paddingTop: '30px',
+    paddingBottom: '60px',
     marginLeft: 'auto',
     marginRight: 'auto'
   }
