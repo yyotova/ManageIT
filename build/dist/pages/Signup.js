@@ -4,7 +4,8 @@ import {useHistory, Link} from "../../_snowpack/pkg/react-router-dom.js";
 import authService from "../services/AuthService.js";
 const useStyles = makeStyles(() => ({
   container: {
-    marginTop: "200px",
+    marginTop: "3rem",
+    marginBottom: "6rem",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -12,20 +13,20 @@ const useStyles = makeStyles(() => ({
     width: "400px",
     padding: "30px"
   },
-  textField: {
-    width: "300px"
-  },
   signUp: {
     backgroundColor: "#ffcc66",
     border: "2px solid  #424242",
     width: "100px",
-    marginLeft: "200px",
+    marginLeft: "250px",
     "&:hover": {
       backgroundColor: "#f2dfb8"
     }
   },
   register: {
     marginTop: "20px"
+  },
+  input: {
+    padding: "0px"
   }
 }));
 export default function Signup() {
@@ -59,7 +60,6 @@ export default function Signup() {
     onChange: (event) => setUsername(event.target.value),
     size: "medium",
     required: true,
-    className: classes.textField,
     color: "secondary"
   }), /* @__PURE__ */ React.createElement(TextField, {
     label: "email",
@@ -69,7 +69,6 @@ export default function Signup() {
     onChange: (event) => setEmail(event.target.value),
     size: "medium",
     required: true,
-    className: classes.textField,
     color: "secondary"
   }), /* @__PURE__ */ React.createElement(TextField, {
     label: "password",
@@ -79,7 +78,6 @@ export default function Signup() {
     onChange: (event) => setPassword(event.target.value),
     size: "medium",
     required: true,
-    className: classes.textField,
     color: "secondary"
   }), /* @__PURE__ */ React.createElement(TextField, {
     label: "confirm password",
@@ -89,7 +87,6 @@ export default function Signup() {
     onChange: (event) => setconfirmPassword(event.target.value),
     size: "medium",
     required: true,
-    className: classes.textField,
     color: "secondary"
   }), /* @__PURE__ */ React.createElement(Button, {
     className: classes.signUp,

@@ -9,7 +9,7 @@ export interface formProps {
     onClose: () => void;
 }
 
-const useStyles = makeStyles(theme => ({
+export const useStyles = makeStyles(theme => ({
 
     dialogWrapper: {
         paddingBottom: '10px',
@@ -108,7 +108,7 @@ export default function CreateProjectForm({ open, onClose }: formProps) {
     }
 
     return (
-        <Dialog open={open} onClose={onClose} maxWidth="md" classes={{ paper: classes.dialogWrapper }}>
+        <Dialog open={open} onClose={closeAndCleanUp} maxWidth="md" classes={{ paper: classes.dialogWrapper }}>
             <Typography variant="h4" className={classes.titleWrapper}>Create a new Project</Typography>
             <IconButton aria-label="close" className={classes.closeButton} onClick={closeAndCleanUp}>
                 <CloseIcon />

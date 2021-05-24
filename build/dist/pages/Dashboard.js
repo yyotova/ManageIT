@@ -4,13 +4,9 @@ import Tasks from "../components/Tasks.js";
 import {useParams} from "../../_snowpack/pkg/react-router-dom.js";
 import {projects} from "./Projects.js";
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    marginTop: "50px"
-  },
   tasks: {
     height: "800px",
-    width: "250px",
+    width: "220px",
     textAlign: "center",
     border: "1px solid #424242",
     padding: 0,
@@ -24,14 +20,21 @@ const useStyles = makeStyles((theme) => ({
       borderRadius: "20px",
       maxWidth: "200px",
       paddingBottom: "7px",
-      marginLeft: "22px"
+      marginLeft: "10px"
     }
   },
   control: {
     padding: theme.spacing(2)
   },
-  grid: {
+  gridPadding: {
     padding: "0px"
+  },
+  gridItem: {
+    padding: "0px",
+    paddingTop: "30px",
+    paddingBottom: "60px",
+    marginLeft: "auto",
+    marginRight: "auto"
   }
 }));
 export default function Dashboard() {
@@ -41,14 +44,16 @@ export default function Dashboard() {
   return /* @__PURE__ */ React.createElement(Grid, {
     container: true,
     spacing: 0,
-    classes: {root: classes.grid}
+    classes: {root: classes.gridPadding}
   }, /* @__PURE__ */ React.createElement(Grid, {
     item: true,
-    xs: 10
+    xs: 12,
+    classes: {root: classes.gridItem}
   }, /* @__PURE__ */ React.createElement(Grid, {
     container: true,
     justify: "center",
-    spacing: 0
+    spacing: 0,
+    classes: {root: classes.gridPadding}
   }, ["New", "In Progress", "Ready For Code Review", "Ready For Testing", "In Testing", "Closed"].map((value) => /* @__PURE__ */ React.createElement(Grid, {
     key: value,
     item: true,

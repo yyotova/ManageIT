@@ -72,7 +72,7 @@ export default function Login() {
             required
             color="secondary"
           />
-          <Button className={classes.signIn} type="submit">Sign in</Button>
+          <Button className={classes.signIn} type="submit" onClick={() => history.push(`/projects`)}>Sign in</Button>
         </Box>
       </form>
       <Typography component={Link} to="/signup" color="inherit" className={classes.register}>

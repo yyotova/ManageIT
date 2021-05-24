@@ -97,7 +97,7 @@ export default function Signup() {
           <Button className={classes.signUp} type="submit">Sign up</Button>
         </Box>
       </form>
-      <Typography component={Link} to="/login" color="inherit" className={classes.register}>
+      <Typography component={Link} to="/" color="inherit" className={classes.register}>
         You already have an account? Login.
         </Typography>
     </Container>

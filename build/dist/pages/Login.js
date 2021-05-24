@@ -4,7 +4,8 @@ import {useHistory, Link} from "../../_snowpack/pkg/react-router-dom.js";
 import authService, {users} from "../services/AuthService.js";
 const useStyles = makeStyles(() => ({
   container: {
-    marginTop: "200px",
+    marginTop: "3rem",
+    marginBottom: "6rem",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -12,14 +13,11 @@ const useStyles = makeStyles(() => ({
     width: "400px",
     padding: "30px"
   },
-  textField: {
-    width: "300px"
-  },
   signIn: {
     backgroundColor: "#ffcc66",
     border: "2px solid  #424242",
     width: "100px",
-    marginLeft: "200px",
+    marginLeft: "250px",
     "&:hover": {
       backgroundColor: "#f2dfb8"
     }
@@ -59,7 +57,6 @@ export default function Login() {
     onChange: (event) => setUsername(event.target.value),
     size: "medium",
     required: true,
-    className: classes.textField,
     color: "secondary"
   }), /* @__PURE__ */ React.createElement(TextField, {
     label: "password",
@@ -69,7 +66,6 @@ export default function Login() {
     onChange: (event) => setPassword(event.target.value),
     size: "medium",
     required: true,
-    className: classes.textField,
     color: "secondary"
   }), /* @__PURE__ */ React.createElement(Button, {
     className: classes.signIn,
