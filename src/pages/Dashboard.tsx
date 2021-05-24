@@ -1,21 +1,17 @@
 import React from 'react';
-import { Grid, Paper, makeStyles } from '@material-ui/core';
+import { Grid, makeStyles } from '@material-ui/core';
 import Tasks from '../components/Tasks';
 import { useParams } from 'react-router-dom';
 import { projects } from './Projects';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    marginTop: '50px'
-  },
   tasks: {
     height: '800px',
     width: '250px',
     textAlign: 'center',
     border: '1px solid #424242',
     padding: 0,
-    "& > :not(:first-child)":{
+    "& > :not(:first-child)": {
       marginTop: '25px',
       display: 'flex',
       flexDirection: 'column',
@@ -31,6 +27,13 @@ const useStyles = makeStyles((theme) => ({
   control: {
     padding: theme.spacing(2),
   },
+  gridWrapper: {
+    padding: '0px'
+  },
+  gridItem: {
+    marginLeft: 'auto',
+    marginRight: 'auto'
+  }
 }));
 
 export default function Dashboard() {
@@ -40,8 +43,8 @@ export default function Dashboard() {
   const currentProject = projects.filter(project => project.id === id);
 
   return (
-    <Grid container className={classes.root} spacing={0}>
-      <Grid item xs={12}>
+    <Grid container spacing={0} classes={{ root: classes.gridWrapper }}>
+      <Grid item xs={10} classes={{ root: classes.gridItem }}>
         <Grid container justify="center" spacing={0}>
           {['New', 'In Progress', 'Ready For Code Review', 'Ready For Testing', 'In Testing', 'Closed'].map((value) => (
             <Grid key={value} item className={classes.tasks}>

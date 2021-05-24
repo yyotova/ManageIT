@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { AppBar, Typography, makeStyles, Toolbar, IconButton, Avatar, Box, Menu, MenuItem } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import useCurrentUser from '../contexts/CurrentUser';
-import { useLocation, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import authService from '../services/AuthService';
 
 const useStyles = makeStyles(() => ({

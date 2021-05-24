@@ -10,10 +10,10 @@ export interface formProps {
 }
 
 const useStyles = makeStyles(theme => ({
+
     dialogWrapper: {
         paddingBottom: '10px',
-        position: 'absolute',
-        top: theme.spacing(30)
+        position: 'absolute'
     },
     titleWrapper: {
         fontWeight: 'bold',

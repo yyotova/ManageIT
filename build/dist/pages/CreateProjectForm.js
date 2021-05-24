@@ -6,8 +6,7 @@ import {v4 as uuidv4} from "../../_snowpack/pkg/uuid.js";
 const useStyles = makeStyles((theme) => ({
   dialogWrapper: {
     paddingBottom: "10px",
-    position: "absolute",
-    top: theme.spacing(30)
+    position: "absolute"
   },
   titleWrapper: {
     fontWeight: "bold",

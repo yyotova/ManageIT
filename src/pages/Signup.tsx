@@ -13,20 +13,20 @@ const useStyles = makeStyles(() => ({
     width: '400px',
     padding: '30px'
   },
-  textField: {
-    width: '300px',
-  },
   signUp: {
     backgroundColor: '#ffcc66',
     border: '2px solid  #424242',
     width: '100px',
-    marginLeft: '200px',
+    marginLeft: '250px',
     '&:hover': {
       backgroundColor: '#f2dfb8'
     }
   },
   register: {
     marginTop: '20px'
+  },
+  input: {
+    padding: '0px'
   }
 }));
 
@@ -43,7 +43,7 @@ export default function Signup() {
   async function submit(event: FormEvent) {
     event.preventDefault();
 
-    authService.register({username, email, password});
+    authService.register({ username, email, password });
 
     history.push(history.location.state?.from || '/');
   }
@@ -61,7 +61,6 @@ export default function Signup() {
             onChange={(event: any) => setUsername(event.target.value)}
             size="medium"
             required
-            className={classes.textField}
             color="secondary"
           />
           <TextField
@@ -72,7 +71,6 @@ export default function Signup() {
             onChange={(event: any) => setEmail(event.target.value)}
             size="medium"
             required
-            className={classes.textField}
             color="secondary"
           />
           <TextField
@@ -83,7 +81,6 @@ export default function Signup() {
             onChange={(event: any) => setPassword(event.target.value)}
             size="medium"
             required
-            className={classes.textField}
             color="secondary"
           />
           <TextField
@@ -94,14 +91,13 @@ export default function Signup() {
             onChange={(event: any) => setconfirmPassword(event.target.value)}
             size="medium"
             required
-            className={classes.textField}
             color="secondary"
           />
           <Button className={classes.signUp} type="submit">Sign up</Button>
         </Box>
       </form>
       <Typography component={Link} to="/login" color="inherit" className={classes.register}>
-          You already have an account? Login.
+        You already have an account? Login.
         </Typography>
     </Container>
   );

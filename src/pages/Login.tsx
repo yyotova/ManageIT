@@ -13,14 +13,11 @@ const useStyles = makeStyles(() => ({
     width: '400px',
     padding: '30px'
   },
-  textField: {
-    width: '300px',
-  },
   signIn: {
     backgroundColor: '#ffcc66',
     border: '2px solid  #424242',
     width: '100px',
-    marginLeft: '200px',
+    marginLeft: '250px',
     '&:hover': {
       backgroundColor: '#f2dfb8'
     }
@@ -43,7 +40,7 @@ export default function Login() {
 
     const user = users.filter(user => user.username === username)
     const email = user.length ? user[0].email : null;
-    
+
     authService.login({ username, email, password });
 
     history.push(history.location.state?.from || '/');
@@ -62,7 +59,6 @@ export default function Login() {
             onChange={(event: any) => setUsername(event.target.value)}
             size="medium"
             required
-            className={classes.textField}
             color="secondary"
           />
           <TextField
@@ -73,7 +69,6 @@ export default function Login() {
             onChange={(event: any) => setPassword(event.target.value)}
             size="medium"
             required
-            className={classes.textField}
             color="secondary"
           />
           <Button className={classes.signIn} type="submit">Sign in</Button>

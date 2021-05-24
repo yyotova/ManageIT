@@ -29,6 +29,9 @@ const useStyles = makeStyles((theme) => ({
   },
   control: {
     padding: theme.spacing(2)
+  },
+  grid: {
+    padding: "0px"
   }
 }));
 export default function Dashboard() {
@@ -37,11 +40,11 @@ export default function Dashboard() {
   const currentProject = projects.filter((project) => project.id === id);
   return /* @__PURE__ */ React.createElement(Grid, {
     container: true,
-    className: classes.root,
-    spacing: 0
+    spacing: 0,
+    classes: {root: classes.grid}
   }, /* @__PURE__ */ React.createElement(Grid, {
     item: true,
-    xs: 12
+    xs: 10
   }, /* @__PURE__ */ React.createElement(Grid, {
     container: true,
     justify: "center",
