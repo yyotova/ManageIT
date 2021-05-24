@@ -31,6 +31,8 @@ const useStyles = makeStyles((theme) => ({
     padding: '0px'
   },
   gridItem: {
+    padding: '0px',
+    paddingTop: '30px',
     marginLeft: 'auto',
     marginRight: 'auto'
   }
@@ -44,7 +46,7 @@ export default function Dashboard() {
 
   return (
     <Grid container spacing={0} classes={{ root: classes.gridWrapper }}>
-      <Grid item xs={10} classes={{ root: classes.gridItem }}>
+      <Grid item xs={12} classes={{ root: classes.gridItem }}>
         <Grid container justify="center" spacing={0}>
           {['New', 'In Progress', 'Ready For Code Review', 'Ready For Testing', 'In Testing', 'Closed'].map((value) => (
             <Grid key={value} item className={classes.tasks}>
