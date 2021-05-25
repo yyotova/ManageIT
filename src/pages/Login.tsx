@@ -5,7 +5,8 @@ import authService, { users } from '../services/AuthService';
 
 const useStyles = makeStyles(() => ({
   container: {
-    marginTop: '200px',
+    marginTop: '3rem',
+    marginBottom: '6rem',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -13,14 +14,11 @@ const useStyles = makeStyles(() => ({
     width: '400px',
     padding: '30px'
   },
-  textField: {
-    width: '300px',
-  },
   signIn: {
     backgroundColor: '#ffcc66',
     border: '2px solid  #424242',
     width: '100px',
-    marginLeft: '200px',
+    marginLeft: '250px',
     '&:hover': {
       backgroundColor: '#f2dfb8'
     }
@@ -43,8 +41,9 @@ export default function Login() {
 
     const user = users.filter(user => user.username === username)
     const email = user.length ? user[0].email : null;
-    
+
     authService.login({ username, email, password });
+    console.log(username, email, password);
 
     history.push(history.location.state?.from || '/');
   }
@@ -60,9 +59,8 @@ export default function Login() {
             type="text"
             value={username}
             onChange={(event: any) => setUsername(event.target.value)}
-            size="medium"
+            size="small"
             required
-            className={classes.textField}
             color="secondary"
           />
           <TextField
@@ -71,9 +69,8 @@ export default function Login() {
             type="password"
             value={password}
             onChange={(event: any) => setPassword(event.target.value)}
-            size="medium"
+            size="small"
             required
-            className={classes.textField}
             color="secondary"
           />
           <Button className={classes.signIn} type="submit">Sign in</Button>

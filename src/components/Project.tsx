@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
-import { Card, CardMedia, CardContent, CardActionArea, Typography, makeStyles, Container, IconButton, Button, CardActions, Theme } from '@material-ui/core';
+import { Card, CardMedia, CardContent, CardActionArea, Typography, makeStyles, IconButton, Theme } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import EditIcon from '@material-ui/icons/Edit';
 import EditProjectForm from '../pages/EditProjectForm';
 
-export interface TaskModel{
+export interface TaskModel {
   id: string;
   title: string;
-  // description: string | null;
+  description: string | null;
   asignee: string;
+  reporter: string;
+  estimated: string;
   label: string;
+  comments: string[];
+  history: string[];
 }
 
 export interface ProjectProps {
@@ -52,6 +56,7 @@ export default function Project({ project }: { project: ProjectProps }) {
     setEditProject(true);
   };
 
+
   return (
     <Card className={classes.card}>
       <CardActionArea onClick={() => history.push(`/${project.id}/dashboard`)}>
@@ -71,8 +76,8 @@ export default function Project({ project }: { project: ProjectProps }) {
         </IconButton>
         <EditProjectForm
           open={editProject}
-          onClose={handleCloseDialog} 
-          project={project}/>
+          onClose={handleCloseDialog}
+          project={project} />
         <CardActionArea onClick={() => history.push(`/${project.id}/dashboard`)}>
           <Typography variant="body2" color="textSecondary" component="p">
             {project.description}

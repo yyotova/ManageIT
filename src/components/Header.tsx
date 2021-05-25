@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { AppBar, Typography, makeStyles, Toolbar, IconButton, Avatar, Box, Menu, MenuItem } from '@material-ui/core';
+import { AppBar, Typography, makeStyles, Toolbar, IconButton, Avatar, Box, Menu, MenuItem, CardActionArea, Link } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import useCurrentUser from '../contexts/CurrentUser';
-import { useLocation, Link } from 'react-router-dom';
-import authService from '../services/AuthService';
+import { Link as RouterLink, useHistory } from 'react-router-dom';
+import authService, { UserAuth } from '../services/AuthService';
 
 const useStyles = makeStyles(() => ({
   header: {
@@ -24,10 +24,14 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  title: {
+    fontSize: '28px'
   }
 }));
 
 export default function Header() {
+  const history = useHistory<{ from: Location }>();
   const classes = useStyles();
   const user = useCurrentUser();
   const [anchorEl, setAnchorEl] = useState<Element | null>(null);
@@ -49,6 +53,21 @@ export default function Header() {
   function showTeams() {
     setMenuEl(null);
   }
+
+  function LoginHeaderButton(user: UserAuth) {
+    return (
+      <CardActionArea onClick={() => history.push(`/projects`)}>
+        <Typography variant="h4">ManageIT</Typography>
+      </CardActionArea>
+    );
+  }
+
+  function LogoutHeaderButton(user: UserAuth) {
+    return (
+      <Typography variant="h4">ManageIT</Typography>
+    );
+  }
+
   return (
     <AppBar position="sticky" className={classes.header}>
       <Toolbar className={classes.toolBar}>
@@ -73,12 +92,19 @@ export default function Header() {
               open={!!menuEl}
               onClose={() => setMenuEl(null)}
             >
-              <MenuItem onClick={showProjects} component={Link} to="/projects">Projects</MenuItem>
-              <MenuItem onClick={showTeams} component={Link} to="/teams">Teams</MenuItem>
+              <MenuItem onClick={showProjects} component={RouterLink} to="/projects">Projects</MenuItem>
+              <MenuItem onClick={showTeams} component={RouterLink} to="/teams">Teams</MenuItem>
             </Menu>
           </>
         }
-        <Typography variant="h4">ManageIT</Typography>
+        {user && <>
+          <Link component={RouterLink} to="/projects" color='inherit' underline='none' className={classes.title}>ManageIT</Link>
+        </>
+        }
+        {!user && <>
+          <Typography variant="h4">ManageIT</Typography>
+        </>
+        }
         {user &&
           <>
             <Box className={classes.userBox}>
@@ -103,8 +129,8 @@ export default function Header() {
               open={!!anchorEl}
               onClose={() => setAnchorEl(null)}
             >
-              <MenuItem onClick={showUserProfile} component={Link} to="/profile">User Profile</MenuItem>
-              <MenuItem onClick={logout} component={Link} to="/login">Logout</MenuItem>
+              <MenuItem onClick={showUserProfile} component={RouterLink} to="/profile">User Profile</MenuItem>
+              <MenuItem onClick={logout} component={RouterLink} to="/">Logout</MenuItem>
             </Menu>
           </>
         }

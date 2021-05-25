@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, makeStyles, Box } from '@material-ui/core';
+import { Typography, makeStyles } from '@material-ui/core';
 import type { TaskModel } from './Project';
 import Task from './Task';
 
