@@ -58,7 +58,7 @@ export default function Login() {
             type="text"
             value={username}
             onChange={(event: any) => setUsername(event.target.value)}
-            size="medium"
+            size="small"
             required
             color="secondary"
           />
@@ -68,7 +68,7 @@ export default function Login() {
             type="password"
             value={password}
             onChange={(event: any) => setPassword(event.target.value)}
-            size="medium"
+            size="small"
             required
             color="secondary"
           />
