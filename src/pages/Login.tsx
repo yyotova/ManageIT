@@ -43,6 +43,7 @@ export default function Login() {
     const email = user.length ? user[0].email : null;
 
     authService.login({ username, email, password });
+    console.log(username, email, password);
 
     history.push(history.location.state?.from || '/');
   }
@@ -72,7 +73,7 @@ export default function Login() {
             required
             color="secondary"
           />
-          <Button className={classes.signIn} type="submit" onClick={() => history.push(`/projects`)}>Sign in</Button>
+          <Button className={classes.signIn} type="submit">Sign in</Button>
         </Box>
       </form>
       <Typography component={Link} to="/signup" color="inherit" className={classes.register}>
